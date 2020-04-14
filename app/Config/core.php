@@ -18,8 +18,8 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
-//setLocale(LC_ALL, 'deu');
-//Configure::write('Config.language', 'deu');
+date_default_timezone_set('America/Sao_Paulo');
+setLocale(LC_ALL, 'pt_BR', 'pt_BR.iso-8859-1', 'pt_BR.utf-8', 'portuguese');
 
 /**
  * CakePHP Debug Level:

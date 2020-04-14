@@ -13,7 +13,7 @@
 
     </head>
     <body>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
             <?php
                 echo $this->Html->link('Finder', '/', array(
                     'class' => 'navbar-brand'
@@ -38,7 +38,7 @@
                     </li>                                                          
                 </ul>
                 <?php
-                    if (AuthComponent::user('id')) {
+                    /*if (AuthComponent::user('id')) {
                         echo $this->Html->div('dropdown',
                             $this->Form->button('Perfil', array('class' => 'btn btn-secondary dropdown-toggle', 'data-toggle' => 'dropdown')) .
                             $this->Html->div('dropdown-menu dropdown-menu-right',
@@ -50,11 +50,11 @@
                         );
                     } else {
                         echo $this->Html->link('Login', '/usuarios/login', array('class' => 'btn btn-secondary'));                        
-                    }                    
+                    }  */                  
                 ?>               
             </div>
             
-        </nav>
+        </nav> -->
 
         <main role="main" class="container" background-color="#0d0d0d" id="content">
             <?php 

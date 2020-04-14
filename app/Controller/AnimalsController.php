@@ -3,9 +3,9 @@ App::uses('AppController', 'Controller');
 
 class AnimalsController extends AppController {
 
-
     public function index() {
-        $fields = array('Animal.id', 'Animal.nome', 'Animal.idade', 'Animal.informacoes', 'Animal.cidade', 'Animal.estado', 'Animal.status');
+        $fields = array('Animal.id', 'Animal.nome', 'Animal.foto', 'Animal.idade', 'Animal.estado', 'Animal.cidade', 'Animal.informacoes', 'Animal.status');
+        $conditions = array('Animal.deleted' => null, 'Animal.status' => 'Perdido');
         $animals = $this->Animal->find('all', compact('fields', 'conditions'));
 
         $this->set('animals', $animals);
@@ -18,6 +18,7 @@ class AnimalsController extends AppController {
                 $this->request->data['Animal']['foto'] = $this->request->data['Animal']['foto']['name'];         
             }
             $this->request->data['Animal']['status'] = 'Perdido';
+            //descomentar
             //$this->request->data['Animal']['dono_id'] .= $this->Auth->user('id');
             $this->Animal->create();
             if($this->Animal->save($this->request->data)){
@@ -25,7 +26,6 @@ class AnimalsController extends AppController {
                 $this->redirect('/'); 
             }
         }
-    }
-    
+    }    
 
 }

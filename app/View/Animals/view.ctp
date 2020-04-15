@@ -43,10 +43,7 @@ $view .= $this->Html->div('col-md-4',
     )
 );
 
-echo $this->Flash->render('warning'); 
-echo $this->Flash->render('success');
-
-echo $this->Html->tag('h1', 'Dados do Animal', array('class' => 'mt-5 invisible'));
+echo $this->Html->tag('h1', 'Dados do Animal', array('class' => 'mb-5 invisible'));
 echo $this->Html->tag('h1', 'Dados do Animal', array('class' => 'my-5'));
 echo $this->Html->div('row', $view);
 echo $this->Js->link('Encontrei', '/animals/notificar', array('class' => 'btn btn-success mb-5 mr-3', 'update' => '#content'));

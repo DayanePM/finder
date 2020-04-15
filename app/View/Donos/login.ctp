@@ -9,38 +9,27 @@ $inputDefaults = array(
 );
 
 $form = $this->Form->create('Dono', array('class' => 'form-signin', 'inputDefaults' => $inputDefaults));
-$form .= $this->Html->div('form-group',
-    $this->Form->input('Dono.nome', array(
-        'label' => 'Nome',
-    ))
-); 
 
 $form .= $this->Html->div('form-group',
     $this->Form->input('Dono.email', array(
-        'label' => 'E-mail',
+        'placeholder' => 'E-mail',
     ))
-); 
-
-$form .= $this->Html->div('form-group',
-    $this->Form->input('Dono.telefone', array(
-        'label' => 'Telefone',
-    ))
-); 
-
+);
 $form .= $this->Html->div('form-group',
     $this->Form->input('Dono.senha', array(
-        'label' => 'Senha',
+        'placeholder' => 'Senha',
         'type' => 'password'
     ))
 ); 
 
-$form .= $this->Form->submit('Cadastrar', array('type' => 'submit', 'class' => 'btn btn-primary mr-3', 'div' => false, 'update' => '#content'));
-$form .= $this->Js->link('Voltar', '/', array('class' => 'btn btn-secondary', 'update' => '#content'));
+$form .= $this->Form->submit('Login', array('type' => 'submit', 'class' => 'btn btn-lg btn-primary btn-block mb-3', 'div' => false, 'update' => '#content'));
+$form .= $this->Flash->render('danger'); 
+$form .= $this->Flash->render('warning'); 
 $form .= $this->Form->end();
 
-echo $this->Html->tag('h1', 'Cadastre-se', array('class' => 'my-5 invisible'));
-echo $this->Html->tag('h1', 'Cadastre-se', array('class' => 'my-5'));
-
+echo $this->Html->div('text-center mb-4',
+        $this->Html->tag('h1', 'Finder', array('class' => 'h3 mb-3 font-weight-normal'))
+);
 echo $form;
 
 $this->Js->buffer('$(".form-error").addClass("is-invalid")');

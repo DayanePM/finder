@@ -95,7 +95,7 @@ $form .= $this->Form->submit('Cadastar', array('type' => 'submit', 'class' => 'b
 $form .= $this->Js->link('Voltar', '/', array('class' => 'btn btn-secondary', 'update' => '#content'));
 $form .= $this->Form->end();
 
-echo $this->Html->tag('h1', 'Novo', array('class' => 'mt-5 invisible'));
+echo $this->Html->tag('h1', 'Novo', array('class' => 'mb-5 invisible'));
 echo $this->Html->tag('h1', 'Novo Animal', array('class' => 'my-5'));
 echo $form;
 

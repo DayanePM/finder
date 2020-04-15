@@ -1,7 +1,7 @@
 <?php
 class AnimalTest extends CakeTestCase {
 
-    public $fixtures = array('app.Animal');
+    public $fixtures = array('app.Animal', 'app.Dono');
     public $Animal = null;
 
     public function setUp() {
@@ -96,6 +96,15 @@ class AnimalTest extends CakeTestCase {
         $data = array('Animal' => array('cidade' => ' '));
         $saved = $this->Animal->save($data);
         $this->assertFalse($saved);
+    }
+
+    public function testDelete() {
+        $animalId = 1;
+        $deleted = $this->Animal->delete($animalId);
+        $conditions = array('Animal.deleted IS NOT NULL', 'Animal.id' => $animalId);
+        $contain = false;
+        $deletedAnimal = $this->Animal->find('first', compact('conditions', 'contain'));
+        $this->assertNotEmpty($deletedAnimal);
     }
 
 }

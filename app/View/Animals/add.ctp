@@ -3,7 +3,6 @@
 $inputDefaults = array(
     'class' => 'form-control',
     'required' => false,
-    'label' => false,
     'div' => array('class' => 'form-group'),
     'error' => array('attributes' => array('class' => 'invalid-feedback')),
     'type' => 'text'
@@ -17,7 +16,7 @@ $form .= $this->Form->hidden('Animal.dono_id');
 $form .= $this->Html->div('form-row', 
     $this->Form->input('Animal.foto', array(
         'type' => 'file',
-        'placeholder' => 'Escolha uma foto',
+        'label' => 'Escolha uma foto',
         'div' => array('class' => 'form-group col-md-6'),
         'error' => array('attributes' => array('class' => 'invalid-feedback'))
     )) . '<input type="hidden" name="MAX_FILE_SIZE" value="15000">'
@@ -26,12 +25,12 @@ $form .= $this->Html->div('form-row',
 $form .= $this->Html->div('form-row', 
     $this->Form->input('Animal.nome', array(
         'div' => array('class' => 'form-group col-md-6'),
-        'placeholder' => 'Nome',
+        'label' => 'Nome',
         'error' => array('attributes' => array('class' => 'invalid-feedback'))
     )) .
     $this->Form->input('Animal.idade', array(
         'empty' => 'Idade do Animal',
-        'placeholder' => 'Idade do animal',
+        'label' => 'Idade do animal',
         'div' => array('class' => 'form-group col-md-6'),
         'error' => array('attributes' => array('class' => 'invalid-feedback'))  
     ))
@@ -39,7 +38,8 @@ $form .= $this->Html->div('form-row',
 
 $form .= $this->Html->div('form-row', 
     $this->Form->input('Animal.estado', array(
-        'empty' => 'Estado que o animal se perdeu',
+        'label' => 'Estado que o animal se perdeu',
+        'empty' => 'Selecione um estado',
         'type' => 'select',
         'options' => array(
             'AC'=>'Acre',
@@ -74,7 +74,7 @@ $form .= $this->Html->div('form-row',
         'error' => array('attributes' => array('class' => 'invalid-feedback'))  
     )) .
     $this->Form->input('Animal.cidade', array(
-        'placeholder' => 'Cidade que o animal se perdeu',
+        'label' => 'Cidade que o animal se perdeu',
         'div' => array('class' => 'form-group col-md-6'),
         'error' => array('attributes' => array('class' => 'invalid-feedback'))  
     ))
@@ -82,7 +82,7 @@ $form .= $this->Html->div('form-row',
 
 $form .= $this->Html->div('form-row',
     $this->Form->input('Animal.informacoes', array(
-        'placeholder' => 'Informações extra',
+        'label' => 'Informações extra',
         'type' => 'textarea',
         'div' => array('class' => 'form-group col-md-12'),
         'maxlength' => 300,
@@ -91,11 +91,11 @@ $form .= $this->Html->div('form-row',
 
 );
 
-$form .= $this->Form->submit('Gravar', array('type' => 'submit', 'class' => 'btn btn-success mr-2', 'div' => false, 'update' => '#content'));
-$form .= $this->Js->link('Cancelar', '/', array('class' => 'btn btn-secondary', 'update' => '#content'));
+$form .= $this->Form->submit('Cadastar', array('type' => 'submit', 'class' => 'btn btn-primary mr-3', 'div' => false, 'update' => '#content'));
+$form .= $this->Js->link('Voltar', '/', array('class' => 'btn btn-secondary', 'update' => '#content'));
 $form .= $this->Form->end();
 
-echo $this->Html->tag('h1', ' ', array('class' => 'mt-5 invisible'));
+echo $this->Html->tag('h1', 'Novo', array('class' => 'mt-5 invisible'));
 echo $this->Html->tag('h1', 'Novo Animal', array('class' => 'my-5'));
 echo $form;
 

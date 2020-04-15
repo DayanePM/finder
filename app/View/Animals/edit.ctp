@@ -17,12 +17,12 @@ $form .= $this->Form->hidden('Animal.id');
 $form .= $this->Html->div('form-row', 
     $this->Form->input('Animal.nome', array(
         'div' => array('class' => 'form-group col-md-6'),
-        'placeholder' => 'Nome',
+        'label' => 'Nome',
         'error' => array('attributes' => array('class' => 'invalid-feedback'))
     )) .
     $this->Form->input('Animal.idade', array(
         'empty' => 'Idade do Animal',
-        'placeholder' => 'Idade do animal',
+        'label' => 'Idade do animal',
         'div' => array('class' => 'form-group col-md-6'),
         'error' => array('attributes' => array('class' => 'invalid-feedback'))  
     ))
@@ -30,7 +30,7 @@ $form .= $this->Html->div('form-row',
 
 $form .= $this->Html->div('form-row', 
     $this->Form->input('Animal.estado', array(
-        'empty' => 'Estado que o animal se perdeu',
+        'label' => 'Estado que o animal se perdeu',
         'type' => 'select',
         'options' => array(
             'AC'=>'Acre',
@@ -65,7 +65,7 @@ $form .= $this->Html->div('form-row',
         'error' => array('attributes' => array('class' => 'invalid-feedback'))  
     )) .
     $this->Form->input('Animal.cidade', array(
-        'placeholder' => 'Cidade que o animal se perdeu',
+        'label' => 'Cidade que o animal se perdeu',
         'div' => array('class' => 'form-group col-md-6'),
         'error' => array('attributes' => array('class' => 'invalid-feedback'))  
     ))
@@ -73,7 +73,7 @@ $form .= $this->Html->div('form-row',
 
 $form .= $this->Html->div('form-row',
     $this->Form->input('Animal.informacoes', array(
-        'placeholder' => 'Informações extra',
+        'label' => 'Informações extra',
         'type' => 'textarea',
         'div' => array('class' => 'form-group col-md-12'),
         'maxlength' => 300,
@@ -82,7 +82,7 @@ $form .= $this->Html->div('form-row',
 
 );
 
-$form .= $this->Form->submit('Gravar', array('type' => 'submit', 'class' => 'btn btn-success mr-2', 'div' => false, 'update' => '#content'));
+$form .= $this->Form->submit('Salvar', array('type' => 'submit', 'class' => 'btn btn-success mr-2', 'div' => false, 'update' => '#content'));
 $form .= $this->Js->link('Cancelar', '/', array('class' => 'btn btn-secondary', 'update' => '#content'));
 $form .= $this->Form->end();
 

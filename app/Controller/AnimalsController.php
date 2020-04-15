@@ -26,6 +26,26 @@ class AnimalsController extends AppController {
                 $this->redirect('/'); 
             }
         }
-    }    
+    } 
+    
+    public function edit($id = null) {
+        if(!empty($this->request->data)){
+            if($this->Animal->save($this->request->data)){                
+                $this->Flash->bootstrap('Alteração realizada com sucesso', array('key' => 'success'));
+                $this->redirect('/');
+            }
+        } else {
+            $fields = array('Animal.id', 'Animal.nome', 'Animal.foto', 'Animal.idade', 'Animal.estado', 'Animal.cidade', 'Animal.informacoes', 'Animal.status');
+            $conditions = array('Animal.id' => $id);
+            $this->request->data = $this->Animal->find('first', compact('fields', 'conditions'));
+        }        
+    }
+
+    public function view($id = null) {
+    $fields = array('Animal.id', 'Animal.nome', 'Animal.foto', 'Animal.idade', 'Animal.estado', 'Animal.cidade', 'Animal.informacoes', 'Animal.status');
+    $conditions = array('Animal.id' => $id);
+    $animal = $this->Animal->find('first', compact('fields', 'conditions'));
+    $this->set('animal', $animal);
+}
 
 }

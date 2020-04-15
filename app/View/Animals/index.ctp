@@ -11,7 +11,7 @@ foreach ($animals as $animal) {
                 $this->Html->para('card-text', 'Situação: ' . $animal['Animal']['cidade']) .
                 $this->Html->div('d-flex justify-content-between align-items-center',
                     $this->Js->link('Mais info', '/animals/view/' . $animal['Animal']['id'], array('class' => 'btn btn-primary', 'update' => '#content')) .
-                    $this->Js->link('Encontrei', '/animals/encontrar/' . $animal['Animal']['id'], array('class' => 'btn btn-success', 'update' => '#content'))
+                    $this->Js->link('Encontrei', '/animals/notificar/' . $animal['Animal']['id'], array('class' => 'btn btn-success', 'update' => '#content'))
                 )
             )
         )

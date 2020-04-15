@@ -2,8 +2,8 @@
 
 $inputDefaults = array(
     'class' => 'form-control',
-    'required' => false,
     'label' => false,
+    'required' => false,
     'div' => array('class' => 'form-group'),
     'error' => array('attributes' => array('class' => 'invalid-feedback')),
     'type' => 'text'
@@ -13,16 +13,7 @@ $form = $this->Form->create('Animal', array(
     'enctype' => 'multipart/form-data',
     'inputDefaults' => $inputDefaults
 ));
-$form .= $this->Form->hidden('Animal.dono_id');
-$form .= $this->Html->div('form-row', 
-    $this->Form->input('Animal.foto', array(
-        'type' => 'file',
-        'placeholder' => 'Escolha uma foto',
-        'div' => array('class' => 'form-group col-md-6'),
-        'error' => array('attributes' => array('class' => 'invalid-feedback'))
-    )) . '<input type="hidden" name="MAX_FILE_SIZE" value="15000">'
-);
-
+$form .= $this->Form->hidden('Animal.id');
 $form .= $this->Html->div('form-row', 
     $this->Form->input('Animal.nome', array(
         'div' => array('class' => 'form-group col-md-6'),
@@ -95,8 +86,8 @@ $form .= $this->Form->submit('Gravar', array('type' => 'submit', 'class' => 'btn
 $form .= $this->Js->link('Cancelar', '/', array('class' => 'btn btn-secondary', 'update' => '#content'));
 $form .= $this->Form->end();
 
-echo $this->Html->tag('h1', ' ', array('class' => 'mt-5 invisible'));
-echo $this->Html->tag('h1', 'Novo Animal', array('class' => 'my-5'));
+echo $this->Html->tag('h1', 'Espaço', array('class' => 'mt-5 invisible'));
+echo $this->Html->tag('h1', 'Alterar Animal', array('class' => 'my-5'));
 echo $form;
 
 $this->Js->buffer('$(".form-error").addClass("is-invalid")');

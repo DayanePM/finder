@@ -36,16 +36,22 @@ class AnimalsController extends AppController {
             }
         } else {
             $fields = array('Animal.id', 'Animal.nome', 'Animal.foto', 'Animal.idade', 'Animal.estado', 'Animal.cidade', 'Animal.informacoes', 'Animal.status');
-            $conditions = array('Animal.id' => $id);
+            $conditions = array('Animal.id' => $id, 'Animal.deleted' => null);
             $this->request->data = $this->Animal->find('first', compact('fields', 'conditions'));
         }        
     }
 
     public function view($id = null) {
-    $fields = array('Animal.id', 'Animal.nome', 'Animal.foto', 'Animal.idade', 'Animal.estado', 'Animal.cidade', 'Animal.informacoes', 'Animal.status');
-    $conditions = array('Animal.id' => $id);
-    $animal = $this->Animal->find('first', compact('fields', 'conditions'));
-    $this->set('animal', $animal);
-}
+        $fields = array('Animal.id', 'Animal.nome', 'Animal.foto', 'Animal.idade', 'Animal.estado', 'Animal.cidade', 'Animal.informacoes', 'Animal.status');
+        $conditions = array('Animal.id' => $id);
+        $animal = $this->Animal->find('first', compact('fields', 'conditions'));
+        $this->set('animal', $animal);
+    }
+
+    public function delete($id){
+        $this->Animal->delete($id);
+        $this->redirect('/');
+        $this->Flash->bootstrap('Animal excluído com sucesso', array('key' => 'warning'));
+    }
 
 }

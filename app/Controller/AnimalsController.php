@@ -3,11 +3,20 @@ App::uses('AppController', 'Controller');
 
 class AnimalsController extends AppController {
 
-    public function index() {
-        $fields = array('Animal.id', 'Animal.nome', 'Animal.foto', 'Animal.idade', 'Animal.estado', 'Animal.cidade', 'Animal.informacoes', 'Animal.status');
-        $conditions = array('Animal.deleted' => null, 'Animal.status' => 'Perdido');
-        $animals = $this->Animal->find('all', compact('fields', 'conditions'));
+    public function beforeFilter() {
+        $this->Auth->allow(array('index'));        
+        parent::beforeFilter();
+    } 
 
+    public $paginate = array(
+        'fields' => array('Animal.id', 'Animal.nome', 'Animal.foto', 'Animal.idade', 'Animal.estado', 'Animal.cidade', 'Animal.informacoes', 'Animal.status'),
+        'conditions' => array('Animal.deleted' => null, 'Animal.status' => 'Perdido'),
+        'order' => array('Usuario.nome' => 'asc'),
+        'limit' => 12
+    );
+
+    public function index() {
+        $animals = $this->paginate();
         $this->set('animals', $animals);
     }
 
@@ -18,8 +27,7 @@ class AnimalsController extends AppController {
                 $this->request->data['Animal']['foto'] = $this->request->data['Animal']['foto']['name'];         
             }
             $this->request->data['Animal']['status'] = 'Perdido';
-            //descomentar
-            //$this->request->data['Animal']['dono_id'] .= $this->Auth->user('id');
+            $this->request->data['Animal']['dono_id'] .= $this->Auth->user('id');
             $this->Animal->create();
             if($this->Animal->save($this->request->data)){
                 $this->Flash->bootstrap('Animal cadastrado com sucesso', array('key' => 'success'));

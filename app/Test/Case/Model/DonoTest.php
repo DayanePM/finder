@@ -56,6 +56,12 @@ class DonoTest extends CakeTestCase {
         $this->assertFalse($saved);
     }
 
+    public function testemailIsInique(){
+        $data = array('Dono' => array('email' => 'dayane.mastelari@hotmail.com'));
+        $saved = $this->Dono->save($data);
+        $this->assertFalse($saved);
+    }
+
     public function testTelefoneEmpty(){
         $data = array('Dono' => array('telefone' => null));
         $saved = $this->Dono->save($data);

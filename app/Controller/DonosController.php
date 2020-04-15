@@ -3,8 +3,14 @@ App::uses('AppController', 'Controller');
 
 class DonosController extends AppController {
 
+    public function beforeFilter() {
+        $this->Auth->allow(array('login', 'logout', 'add'));        
+        parent::beforeFilter();
+    } 
+
     public function add(){
         if(!empty($this->request->data)){
+            $this->request->data['Dono']['aro_parent_id'] = 2;
             $this->Dono->create();
             if($this->Dono->save($this->request->data)){
                 $this->Flash->bootstrap('Cadastro realizado com sucesso', array('key' => 'success'));
@@ -12,10 +18,10 @@ class DonosController extends AppController {
             }
         }
 
-        /*$fields = array('Aro.id', 'Aro.alias');
+        $fields = array('Aro.id', 'Aro.alias');
         $conditions = array('Aro.parent_id' => null);
         $aros = $this->Acl->Aro->find('list', compact('fields', 'conditions'));
-        $this->set('aros', $aros);*/
+        $this->set('aros', $aros);
     }
 
     public function edit($id = null){
@@ -31,7 +37,7 @@ class DonosController extends AppController {
         }
     }
 
-    /*public function login() {
+    public function login() {
         $this->layout = 'login';
          if ($this->request->is('post')) {
              if ($this->Auth->login()) {
@@ -43,8 +49,8 @@ class DonosController extends AppController {
  
     public function logout() {
         $this->Auth->logout();
-        $this->redirect('/login');        
-    }*/
+        $this->redirect('/');        
+    }
 
     
 

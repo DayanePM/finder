@@ -12,7 +12,7 @@
 
     </head>
     <body>
-        <!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
             <?php
                 echo $this->Html->link('Finder', '/', array(
                     'class' => 'navbar-brand'
@@ -24,40 +24,30 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <?php echo $this->Html->link('Doar', '/pets/add', array('class' => 'nav-link nav-color-text'));?>                          
-                    </li> 
-                    <li class="nav-item">
-                        <?php echo $this->Html->link('Adotados', '/pets/adotados', array('class' => 'nav-link nav-color-text'));?>
-                    </li> 
-                    <li class="nav-item">
-                        <?php echo $this->Html->link('Perdidos', '/pets/perdidos', array('class' => 'nav-link nav-color-text'));?>
-                    </li>
-                    <li class="nav-item">
-                        <?php echo $this->Html->link('Ongs', '/usuarios', array('class' => 'nav-link nav-color-text'));?>
-                    </li>                                                          
+                        <?php echo $this->Html->link('Animais encontrados', '/animails/encontrados', array('class' => 'nav-link nav-color-text'));?>                          
+                    </li>                                                         
                 </ul>
                 <?php
-                    /*if (AuthComponent::user('id')) {
-                        echo $this->Html->div('dropdown',
+                    if (AuthComponent::user('id')) {
+                        echo $this->Html->div('btn-group',
                             $this->Form->button('Perfil', array('class' => 'btn btn-secondary dropdown-toggle', 'data-toggle' => 'dropdown')) .
                             $this->Html->div('dropdown-menu dropdown-menu-right',
-                                $this->Js->link('Editar Perfil', '/usuarios/edit/' . AuthComponent::user('id'), array('class' => 'dropdown-item', 'update' => '#content')) .
-                                $this->Js->link('Meus animais cadastrados', '/pets/meus_pets_cadastrados/' . AuthComponent::user('id'), array('class' => 'dropdown-item', 'update' => '#content')) .
-                                $this->Js->link('Meus animais perdidos', '/pets/meus_pets_perdidos/' . AuthComponent::user('id'), array('class' => 'dropdown-item', 'update' => '#content')) .
-                                $this->Html->link('Sair', '/usuarios/logout', array('class' => 'dropdown-item'))
+                                $this->Js->link('Editar Perfil', '/donos/edit/' . AuthComponent::user('id'), array('class' => 'dropdown-item', 'update' => '#content')) .
+                                $this->Js->link('Alterar senha', '/donos/alterar_senha/' . AuthComponent::user('id'), array('class' => 'dropdown-item', 'update' => '#content')) .
+                                $this->Js->link('Meus animais', '/animals/animails_cadastrados/' . AuthComponent::user('id'), array('class' => 'dropdown-item', 'update' => '#content')) .
+                                $this->Html->link('Sair', '/donos/logout', array('class' => 'dropdown-item'))
                             )                            
                         );
                     } else {
-                        echo $this->Html->link('Login', '/usuarios/login', array('class' => 'btn btn-secondary'));                        
-                    }  */                  
+                        echo $this->Html->link('Login', '/donos/login', array('class' => 'btn btn-secondary'));                        
+                    }                 
                 ?>               
             </div>
             
-        </nav> -->
+        </nav>
 
         <main role="main" class="container" background-color="#0d0d0d" id="content">
-            <?php 
-                echo $this->Flash->render();
+            <?php
                 echo $this->fetch('content');                 
             ?>
         </main>

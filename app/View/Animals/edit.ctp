@@ -86,7 +86,7 @@ $form .= $this->Form->submit('Salvar', array('type' => 'submit', 'class' => 'btn
 $form .= $this->Js->link('Cancelar', '/', array('class' => 'btn btn-secondary', 'update' => '#content'));
 $form .= $this->Form->end();
 
-echo $this->Html->tag('h1', 'Espaço', array('class' => 'mt-5 invisible'));
+echo $this->Html->tag('h1', 'Espaço', array('class' => 'mb-5 invisible'));
 echo $this->Html->tag('h1', 'Alterar Animal', array('class' => 'my-5'));
 echo $form;
 

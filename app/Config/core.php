@@ -227,7 +227,11 @@ setLocale(LC_ALL, 'pt_BR', 'pt_BR.iso-8859-1', 'pt_BR.utf-8', 'portuguese');
  * the cake shell command: cake schema create Sessions
  */
 	Configure::write('Session', array(
-		'defaults' => 'php'
+		'defaults' => 'php',
+		'cookie' => 'finder',
+		'timeout' =>  10,
+		'cookieTimeout' => 0,
+		'checkAgent' => false
 	));
 
 /**

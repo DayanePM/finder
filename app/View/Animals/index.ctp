@@ -4,16 +4,13 @@ $view = '';
 foreach ($animals as $animal) {
     $view .= $this->Html->div('col-md-4',
         $this->Html->div('card mb-4 box-shadow',
-            $this->Html->image($animal['Animal']['foto'], array('class' => 'card-img-top', 'style' => 'height: 225px; width: 100%; display: block;')) .
+            $this->Html->image($animal['Animal']['foto'], array('class' => 'card-img-top', 'style' => 'height: 250px; width: 100%; display: block;')) .
             $this->Html->div('card-body',
                 $this->Html->para('card-text', 'Nome: ' . $animal['Animal']['nome']) .
                 $this->Html->para('card-text', 'Idade: ' . $animal['Animal']['idade']) .
                 $this->Html->para('card-text', 'Situação: ' . $animal['Animal']['cidade']) .
-                $this->Html->div('d-flex justify-content-between align-items-center',
-                    $this->Html->div('btn-group',
-                        $this->Js->link('Mais info', '/animals/view/' . $animal['Animal']['id'], array('class' => 'btn btn-outline-secondary', 'update' => '#content')) .
-                        $this->Js->link('Encontrei', '/animals/notificar/' . $animal['Animal']['id'], array('class' => 'btn btn-outline-primary', 'update' => '#content'))
-                    )
+                $this->Html->div('d-flex align-items-center',
+                    $this->Js->link('Encontrei', '/comunicados/add/' . $animal['Animal']['id'], array('class' => 'btn btn-outline-secondary btn-block', 'update' => '#content'))
                 )
             )
         )

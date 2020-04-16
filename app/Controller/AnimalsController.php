@@ -4,7 +4,9 @@ App::uses('AppController', 'Controller');
 class AnimalsController extends AppController {
 
     public function beforeFilter() {
-        $this->Auth->allow(array('index'));        
+        $this->Auth->allow(array('index', 'view', 'mudaStatus', 'lista'));
+        $this->Auth->mapActions(['update' => ['animals_cadastrados']]);
+        $this->Auth->mapActions(['view' => ['lista']]);         
         parent::beforeFilter();
     } 
 
@@ -60,6 +62,23 @@ class AnimalsController extends AppController {
         $this->Animal->delete($id);
         $this->redirect('/');
         $this->Flash->bootstrap('Animal excluído com sucesso', array('key' => 'warning'));
+    }
+
+    public function animals_cadastrados($donoId) {
+        $fields = array('Animal.id', 'Animal.dono_id', 'Animal.nome', 'Animal.foto', 'Animal.idade', 'Animal.estado', 'Animal.cidade', 'Animal.informacoes', 'Animal.status');
+        $conditions = array('Animal.dono_id' => $donoId);
+        $animals = $this->Animal->find('all', compact('fields', 'conditions'));
+        $this->set('animals', $animals);
+
+    }
+
+    public function lista($id = null) {
+        $conditions = array('Animal.status' => 'Perdido');
+        $animal = $this->Animal->find('all', compact('conditions'));
+        $this->set(array(
+            'animal' => $animal,
+            '_serialize' => array('animal')
+        ));
     }
 
 }

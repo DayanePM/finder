@@ -14,7 +14,7 @@
     <body>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
             <?php
-                echo $this->Html->link('Finder', '/', array(
+                echo $this->Html->link('Animal Finder', '/', array(
                     'class' => 'navbar-brand'
                 ))
             ?>
@@ -34,7 +34,7 @@
                             $this->Html->div('dropdown-menu dropdown-menu-right',
                                 $this->Js->link('Editar Perfil', '/donos/edit/' . AuthComponent::user('id'), array('class' => 'dropdown-item', 'update' => '#content')) .
                                 $this->Js->link('Alterar senha', '/donos/alterar_senha/' . AuthComponent::user('id'), array('class' => 'dropdown-item', 'update' => '#content')) .
-                                $this->Js->link('Meus animais', '/animals/animails_cadastrados/' . AuthComponent::user('id'), array('class' => 'dropdown-item', 'update' => '#content')) .
+                                $this->Js->link('Meus animais', '/animals/animals_cadastrados/' . AuthComponent::user('id'), array('class' => 'dropdown-item', 'update' => '#content')) .
                                 $this->Html->link('Sair', '/donos/logout', array('class' => 'dropdown-item'))
                             )                            
                         );

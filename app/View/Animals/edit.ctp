@@ -83,7 +83,7 @@ $form .= $this->Html->div('form-row',
 );
 
 $form .= $this->Form->submit('Salvar', array('type' => 'submit', 'class' => 'btn btn-success mr-2', 'div' => false, 'update' => '#content'));
-$form .= $this->Js->link('Cancelar', '/', array('class' => 'btn btn-secondary', 'update' => '#content'));
+$form .= $this->Js->link('Cancelar', '/animals/animals_cadastrados/' . AuthComponent::user('id'), array('class' => 'btn btn-secondary', 'update' => '#content'));
 $form .= $this->Form->end();
 
 echo $this->Html->tag('h1', 'Espaço', array('class' => 'mb-5 invisible'));

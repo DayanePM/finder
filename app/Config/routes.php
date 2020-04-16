@@ -26,7 +26,8 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'animals', 'action' => 'index'));
-	Router::connect('/login', array('controller' => 'donos', 'action' => 'login',));
+	Router::connect('/login', array('controller' => 'donos', 'action' => 'login'));
+	//Router::connect('/lista', array('controller' => 'animals', 'action' => 'lista', 'ext' => 'json',));
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
  */
@@ -36,7 +37,12 @@
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.
  */
+
 	CakePlugin::routes();
+
+
+	Router::mapResources('finder');
+	Router::parseExtensions('json');
 
 /**
  * Load the CakePHP default routes. Only remove this if you do not want to use

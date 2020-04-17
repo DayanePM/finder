@@ -1,5 +1,12 @@
 <?php
 
+$titulo = $this->Html->tag('section',
+    $this->Html->div('container-fluid',
+        $this->Html->tag('h1', 'Altere os dados do seu animal', array('class' => 'jumbotron-heading'))
+    ),
+    array('class' => 'jumbotron text-center')
+);
+
 $inputDefaults = array(
     'class' => 'form-control',
     'label' => false,
@@ -82,12 +89,11 @@ $form .= $this->Html->div('form-row',
 
 );
 
-$form .= $this->Form->submit('Salvar', array('type' => 'submit', 'class' => 'btn btn-success mr-2', 'div' => false, 'update' => '#content'));
+$form .= $this->Form->submit('Salvar', array('type' => 'submit', 'class' => 'btn btn-primary mr-2', 'div' => false, 'update' => '#content'));
 $form .= $this->Js->link('Cancelar', '/animals/animals_cadastrados/' . AuthComponent::user('id'), array('class' => 'btn btn-secondary', 'update' => '#content'));
 $form .= $this->Form->end();
 
-echo $this->Html->tag('h1', 'Espaço', array('class' => 'mb-5 invisible'));
-echo $this->Html->tag('h1', 'Alterar Animal', array('class' => 'my-5'));
+echo $titulo;
 echo $form;
 
 $this->Js->buffer('$(".form-error").addClass("is-invalid")');

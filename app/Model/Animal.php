@@ -45,6 +45,20 @@ class Animal extends AppModel {
         return $comunicado;
     }
 
+    public function encontrado($id = null) {
+        $this->id = $id;
+        $encontrado = $this->saveField('status', 'Encontrado');
+
+        return $encontrado;
+    }
+
+    public function perdido($id = null) {
+        $this->id = $id;
+        $perdido = $this->saveField('status', 'Perdido');
+
+        return $perdido;
+    }
+
 }
 
 ?>

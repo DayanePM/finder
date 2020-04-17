@@ -23,6 +23,7 @@ $form .= $this->Html->div('form-group',
 ); 
 
 $form .= $this->Form->submit('Login', array('type' => 'submit', 'class' => 'btn btn-lg btn-primary btn-block mb-3', 'div' => false, 'update' => '#content'));
+$form .= $this->Html->link('Cadastre-se', '/donos/add', array('update' => '#content'));
 $form .= $this->Flash->render('danger'); 
 $form .= $this->Flash->render('warning'); 
 $form .= $this->Form->end();

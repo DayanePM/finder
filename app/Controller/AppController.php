@@ -13,7 +13,7 @@ class AppController extends Controller {
         'Session',
         'Auth' => array(
             'flash' => array('element' => 'bootstrap', 'params' => array('key' => 'warning'), 'key' => 'warning'),
-            'authError' => 'Você não possui permissão para acessar essa operação.',
+            'authError' => 'Cadastre-se ou faço o login para acessa essa função',
             'loginAction' => '/login',
             'loginRedirect' => '/',
             'logoutRedirect' => '/login',

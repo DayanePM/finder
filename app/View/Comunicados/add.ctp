@@ -1,4 +1,14 @@
 <?php
+
+$titulo = $this->Html->tag('section',
+    $this->Html->div('container-fluid',
+        $this->Html->tag('h1', 'Dados do animal', array('class' => 'jumbotron-heading'))
+    ) .
+    $this->Html->para('lead text-muted', 'Preencha o formulário abaixo para comunicar o dono que você encontrou esse animal'),
+    array('class' => 'jumbotron text-center')
+);
+
+
 $view = $this->Html->div('col-md-4',
     $this->Html->div('card mb-4 box-shadow',
         $this->Html->image($animal['Animal']['foto'], array('class' => 'card-img-top', 'style' => 'height: 250px; width: 100%; display: block;'))
@@ -6,45 +16,23 @@ $view = $this->Html->div('col-md-4',
 );
 $view .= $this->Html->div('col-md-4',
     $this->Html->div('media text-muted pt-3',
-        $this->Html->para('media-body pb-3 mb-0 small lh-125 border-bottom border-gray',
-            $this->Html->tag('strong', 'Nome', array('class' => 'd-block text-gray-dark')) .
-            $animal['Animal']['nome']
-        )
+        $this->Html->tag('', 'Nome: ' . $animal['Animal']['nome'], array('class' => 'd-block text-gray-dark'))
     ) .
     $this->Html->div('media text-muted pt-3',
-        $this->Html->para('media-body pb-3 mb-0 small lh-125 border-bottom border-gray',
-            $this->Html->tag('strong', 'Idade', array('class' => 'd-block text-gray-dark')) .
-            $animal['Animal']['idade']
-        ) 
+        $this->Html->tag('', 'Idade:' . $animal['Animal']['idade'], array('class' => 'd-block text-gray-dark'))
     ) .
     $this->Html->div('media text-muted pt-3',
-        $this->Html->para('media-body pb-3 mb-0 small lh-125 border-bottom border-gray',
-            $this->Html->tag('strong', 'Estado', array('class' => 'd-block text-gray-dark')) .
-            $animal['Animal']['estado']
-        ) 
+        $this->Html->tag('', 'Estado: ' . $animal['Animal']['estado'], array('class' => 'd-block text-gray-dark'))
     ) .
     $this->Html->div('media text-muted pt-3',
-        $this->Html->para('media-body pb-3 mb-0 small lh-125 border-bottom border-gray',
-            $this->Html->tag('strong', 'Cidade', array('class' => 'd-block text-gray-dark')) .
-            $animal['Animal']['cidade']
-        ) 
+        $this->Html->tag('', 'Cidade: ' . $animal['Animal']['cidade'], array('class' => 'd-block text-gray-dark'))
     ) .
     $this->Html->div('media text-muted pt-3',
-        $this->Html->para('media-body pb-3 mb-0 small lh-125 border-bottom border-gray',
-            $this->Html->tag('strong', 'Situação', array('class' => 'd-block text-gray-dark')) .
-            $animal['Animal']['status']
-        )
-    ) .
-    $this->Html->div('media text-muted pt-3',
-        $this->Html->para('media-body pb-3 mb-0 small lh-125',
-            $this->Html->tag('strong', 'Informações Extra', array('class' => 'd-block text-gray-dark')) .
-            $animal['Animal']['informacoes']
-        )
+        $this->Html->tag('', 'Informações Extra: ' . $animal['Animal']['informacoes'], array('class' => 'd-block text-gray-dark'))
     )
 );
 
-echo $this->Html->tag('h1', 'Dados do Animal', array('class' => 'mb-5 invisible'));
-echo $this->Html->tag('h1', 'Dados do Animal', array('class' => 'my-5'));
+echo $titulo;
 echo $this->Html->div('row', $view);
 
 $inputDefaults = array(
@@ -55,7 +43,7 @@ $inputDefaults = array(
     'type' => 'text'
 );
 
-echo $this->Html->tag('h5', 'Preencha o formulário abaixo para comunicar ao dono que você encontrou esse animal!', array('class' => 'my-5'));
+echo $this->Html->tag('h5', 'Encontrei esse animal', array('class' => 'my-5'));
 
 $form = $this->Form->create('Comunicado', array(
     'inputDefaults' => $inputDefaults

@@ -5,7 +5,7 @@ class AnimalsController extends AppController {
 
     public function beforeFilter() {
         $this->Auth->allow(array('index', 'view', 'mudaStatus', 'lista'));
-        $this->Auth->mapActions(['update' => ['animals_cadastrados']]);
+        $this->Auth->mapActions(['update' => ['animals_cadastrados', 'encontrado', 'perdido']]);
         $this->Auth->mapActions(['view' => ['lista']]);         
         parent::beforeFilter();
     } 
@@ -42,7 +42,7 @@ class AnimalsController extends AppController {
         if(!empty($this->request->data)){
             if($this->Animal->save($this->request->data)){                
                 $this->Flash->bootstrap('Alteração realizada com sucesso', array('key' => 'success'));
-                $this->redirect('/');
+                $this->redirect('/animals/animals_cadastrados/' . $this->Auth->user('id'));
             }
         } else {
             $fields = array('Animal.id', 'Animal.nome', 'Animal.foto', 'Animal.idade', 'Animal.estado', 'Animal.cidade', 'Animal.informacoes', 'Animal.status');
@@ -79,6 +79,18 @@ class AnimalsController extends AppController {
             'animal' => $animal,
             '_serialize' => array('animal')
         ));
+    }
+
+    public function encontrado($id){
+        $this->Animal->encontrado($id);
+        $this->Flash->bootstrap('Situação do Animal mudou para Encontrado', array('key' => 'success'));
+        $this->redirect('/comunicados/view/' . $id);        
+    }
+
+    public function perdido($id){
+        $this->Animal->perdido($id);
+        $this->Flash->bootstrap('Situação do Animal mudou para Perdido', array('key' => 'warning'));
+        $this->redirect('/comunicados/view/' . $id);
     }
 
 }

@@ -28,14 +28,10 @@ class ComunicadosController extends AppController {
     public function view($animalId) {
         $fields = array('Comunicado.email', 'Comunicado.telefone');
         $conditions = array('Comunicado.animal_id' => $animalId);
-        $comunicado = $this->Comunicado->find('first', compact('fields', 'conditions'));
+        $comunicados = $this->Comunicado->find('all', compact('fields', 'conditions'));
 
-        if($comunicado) {
-            $this->set('comunicado', $comunicado);
-        } else {
-            $this->Flash->bootstrap('Esse aminal não possui comunicado', array('key' => 'warning'));
-            $this->redirect('/animals/animals_cadastrados/' . $this->Auth->user('id'));
-        }
+        $this->set('animalId', $animalId);
+        $this->set('comunicados', $comunicados);
     }
 
 }

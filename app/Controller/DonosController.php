@@ -10,7 +10,7 @@ class DonosController extends AppController {
 
     public function add(){
         if(!empty($this->request->data)){
-            $this->request->data['Dono']['aro_parent_id'] = 2;
+            $this->request->data['Dono']['aro_parent_id'] = 1;
             $this->Dono->create();
             if($this->Dono->save($this->request->data)){
                 $this->Flash->bootstrap('Cadastro realizado com sucesso', array('key' => 'success'));

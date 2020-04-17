@@ -1,3 +1,15 @@
+# SQL-Front 5.1  (Build 4.16)
+
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE */;
+/*!40101 SET SQL_MODE='NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES */;
+/*!40103 SET SQL_NOTES='ON' */;
+
+
+# Host: localhost    Database: finder
+# ------------------------------------------------------
+# Server version 5.5.5-10.1.38-MariaDB
+
 DROP DATABASE IF EXISTS `finder`;
 CREATE DATABASE `finder` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `finder`;
@@ -21,6 +33,14 @@ CREATE TABLE `acos` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 #
+# Dumping data for table acos
+#
+
+INSERT INTO `acos` VALUES (1,NULL,NULL,NULL,'Animals',1,2);
+INSERT INTO `acos` VALUES (2,NULL,NULL,NULL,'Comunicados',3,4);
+INSERT INTO `acos` VALUES (3,NULL,NULL,NULL,'Donos',5,6);
+
+#
 # Source for table animals
 #
 
@@ -40,7 +60,12 @@ CREATE TABLE `animals` (
   `deleted` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `dono_id_fk` (`dono_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#
+# Dumping data for table animals
+#
+
 
 #
 # Source for table aros
@@ -58,7 +83,13 @@ CREATE TABLE `aros` (
   PRIMARY KEY (`id`),
   KEY `idx_aros_lft_rght` (`lft`,`rght`),
   KEY `idx_aros_alias` (`alias`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+#
+# Dumping data for table aros
+#
+
+INSERT INTO `aros` VALUES (1,NULL,NULL,NULL,'Dono',1,2);
 
 #
 # Source for table aros_acos
@@ -76,7 +107,15 @@ CREATE TABLE `aros_acos` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `ARO_ACO_KEY` (`aro_id`,`aco_id`),
   KEY `idx_aco_id` (`aco_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+#
+# Dumping data for table aros_acos
+#
+
+INSERT INTO `aros_acos` VALUES (1,1,1,'1','1','1','1');
+INSERT INTO `aros_acos` VALUES (2,1,2,'1','1','1','1');
+INSERT INTO `aros_acos` VALUES (3,1,3,'1','1','1','1');
 
 #
 # Source for table comunicados
@@ -92,7 +131,12 @@ CREATE TABLE `comunicados` (
   `modified` datetime DEFAULT NULL,
   `deleted` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#
+# Dumping data for table comunicados
+#
+
 
 #
 # Source for table donos
@@ -110,7 +154,12 @@ CREATE TABLE `donos` (
   `modified` datetime DEFAULT NULL,
   `deleted` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+
+#
+# Dumping data for table donos
+#
+
 
 #
 #  Foreign keys for table animals
@@ -118,3 +167,7 @@ CREATE TABLE `donos` (
 
 ALTER TABLE `animals`
 ADD CONSTRAINT `dono_id_fk` FOREIGN KEY (`dono_id`) REFERENCES `donos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

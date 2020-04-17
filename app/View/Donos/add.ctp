@@ -1,4 +1,13 @@
 <?php
+
+$titulo = $this->Html->tag('section',
+    $this->Html->div('container-fluid',
+        $this->Html->tag('h1', 'Cadastre-se', array('class' => 'jumbotron-heading'))
+    ),
+    array('class' => 'jumbotron text-center')
+);
+
+
 $inputDefaults = array(
     'class' => 'form-control',
     'required' => false,
@@ -38,8 +47,7 @@ $form .= $this->Form->submit('Cadastrar', array('type' => 'submit', 'class' => '
 $form .= $this->Js->link('Voltar', '/', array('class' => 'btn btn-secondary', 'update' => '#content'));
 $form .= $this->Form->end();
 
-echo $this->Html->tag('h1', 'Cadastre-se', array('class' => 'my-5 invisible'));
-echo $this->Html->tag('h1', 'Cadastre-se', array('class' => 'my-5'));
+echo $titulo;
 
 echo $form;
 

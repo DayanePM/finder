@@ -1,5 +1,13 @@
 <?php
 
+$titulo = $this->Html->tag('section',
+    $this->Html->div('container-fluid',
+        $this->Html->tag('h1', 'Cadastre o seu animal perdido', array('class' => 'jumbotron-heading'))
+    ) .
+    $this->Html->para('lead text-muted', 'Você receberá um comunicado caso alguém encontre o seu animal'),
+    array('class' => 'jumbotron text-center')
+);
+
 $inputDefaults = array(
     'class' => 'form-control',
     'required' => false,
@@ -95,8 +103,7 @@ $form .= $this->Form->submit('Cadastar', array('type' => 'submit', 'class' => 'b
 $form .= $this->Js->link('Voltar', '/', array('class' => 'btn btn-secondary', 'update' => '#content'));
 $form .= $this->Form->end();
 
-echo $this->Html->tag('h1', 'Novo', array('class' => 'mb-5 invisible'));
-echo $this->Html->tag('h1', 'Novo Animal', array('class' => 'my-5'));
+echo $titulo;
 echo $form;
 
 $this->Js->buffer('$(".form-error").addClass("is-invalid")');

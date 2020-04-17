@@ -1,7 +1,7 @@
 <?php
 $view = $this->Html->div('col-md-4',
-    $this->Html->div('card mb-4 shadow-sm',
-        $this->Html->image($animal['Animal']['foto'], array('class' => 'bd-placeholder-img card-img-top'))
+    $this->Html->div('card mb-4 box-shadow',
+        $this->Html->image($animal['Animal']['foto'], array('class' => 'card-img-top', 'style' => 'height: 250px; width: 100%; display: block;'))
     )
 );
 $view .= $this->Html->div('col-md-4',
@@ -46,8 +46,6 @@ $view .= $this->Html->div('col-md-4',
 echo $this->Html->tag('h1', 'Dados do Animal', array('class' => 'mb-5 invisible'));
 echo $this->Html->tag('h1', 'Dados do Animal', array('class' => 'my-5'));
 echo $this->Html->div('row', $view);
-echo $this->Js->link('Encontrei', '/animals/notificar', array('class' => 'btn btn-success mb-5 mr-3', 'update' => '#content'));
-echo $this->Js->link('Voltar', '/', array('class' => 'btn btn-secondary mb-5', 'update' => '#content'));
 
 $this->Js->buffer('$(".form-error").addClass("is-invalid")');
 if($this->request->is('ajax')) {

@@ -3,6 +3,10 @@ App::uses('AppModel', 'Model');
 
 class Animal extends AppModel {
 
+    public $actsAs = array(
+        'Containable'
+    );
+
     public $belongsTo = array(
         'Dono'
     );
@@ -32,6 +36,27 @@ class Animal extends AppModel {
         $deleted = $this->saveField('deleted', date('Y-m-d h:i:s'));
 
         return $deleted;
+    }
+
+    public function mudaStatus($id) {
+        $this->id = $id;
+        $comunicado = $this->saveField('status', 'Comunicado');
+
+        return $comunicado;
+    }
+
+    public function encontrado($id = null) {
+        $this->id = $id;
+        $encontrado = $this->saveField('status', 'Encontrado');
+
+        return $encontrado;
+    }
+
+    public function perdido($id = null) {
+        $this->id = $id;
+        $perdido = $this->saveField('status', 'Perdido');
+
+        return $perdido;
     }
 
 }

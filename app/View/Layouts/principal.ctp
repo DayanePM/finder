@@ -14,7 +14,7 @@
     <body>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
             <?php
-                echo $this->Html->link('Finder', '/', array(
+                echo $this->Html->link('Animal Finder', '/', array(
                     'class' => 'navbar-brand'
                 ))
             ?>
@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <?php echo $this->Html->link('Animais encontrados', '/animails/encontrados', array('class' => 'nav-link nav-color-text'));?>                          
+                        <?php echo $this->Html->link('', '', array('class' => 'nav-link nav-color-text'));?>                          
                     </li>                                                         
                 </ul>
                 <?php
@@ -33,8 +33,7 @@
                             $this->Form->button('Perfil', array('class' => 'btn btn-secondary dropdown-toggle', 'data-toggle' => 'dropdown')) .
                             $this->Html->div('dropdown-menu dropdown-menu-right',
                                 $this->Js->link('Editar Perfil', '/donos/edit/' . AuthComponent::user('id'), array('class' => 'dropdown-item', 'update' => '#content')) .
-                                $this->Js->link('Alterar senha', '/donos/alterar_senha/' . AuthComponent::user('id'), array('class' => 'dropdown-item', 'update' => '#content')) .
-                                $this->Js->link('Meus animais', '/animals/animails_cadastrados/' . AuthComponent::user('id'), array('class' => 'dropdown-item', 'update' => '#content')) .
+                                $this->Js->link('Meus animais', '/animals/animals_cadastrados/' . AuthComponent::user('id'), array('class' => 'dropdown-item', 'update' => '#content')) .
                                 $this->Html->link('Sair', '/donos/logout', array('class' => 'dropdown-item'))
                             )                            
                         );
@@ -46,7 +45,7 @@
             
         </nav>
 
-        <main role="main" class="container" background-color="#0d0d0d" id="content">
+        <main role="main" class="container" background-color="#f5f5f5" id="content">
             <?php
                 echo $this->fetch('content');                 
             ?>

@@ -29,8 +29,8 @@ foreach ($animals as $animal) {
     );
 }
 
-$view = $this->Html->div('container-fluid',
-    $this->Html->div('container',
+$view = $this->Html->div('container',
+    $this->Html->div('container-fluid',
         $this->Html->div('row',
             $fotos
         )

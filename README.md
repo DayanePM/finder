@@ -8,6 +8,10 @@ git clone https://github.com/DayanePM/finder.git finder
 
 ## Crie o banco de dados
 
+Renomeio o arquivo 
+/finder/app/Config/database.default.php para
+/finder/app/Config/database.php
+
 - rode o script do arquivo metadata.sql
 
 finder/app/Config/Schema/metadata.sql

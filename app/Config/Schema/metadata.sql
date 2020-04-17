@@ -60,12 +60,14 @@ CREATE TABLE `animals` (
   `deleted` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `dono_id_fk` (`dono_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 #
 # Dumping data for table animals
 #
 
+INSERT INTO `animals` VALUES (1,19,'beach-1790049_960_720.jpg','Branquinho',3,'É um pouco arisco, não gosta muito de crianças, recompensa 300R$','Curitiba','PR','Perdido','2020-04-17 19:07:55','2020-04-17 19:07:55',NULL);
+INSERT INTO `animals` VALUES (2,19,'cachorro 4654676.jpg','Bidu',1,'Meus filhos se apegaram muito nele, recompensa 500R$ para quem trouxer o cachorro na minha porta(sou mãe solteira não tenho como ir buscar)','Rio de Janeiro','RJ','Perdido','2020-04-17 19:13:29','2020-04-17 19:13:29',NULL);
 
 #
 # Source for table aros
@@ -83,13 +85,14 @@ CREATE TABLE `aros` (
   PRIMARY KEY (`id`),
   KEY `idx_aros_lft_rght` (`lft`,`rght`),
   KEY `idx_aros_alias` (`alias`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 #
 # Dumping data for table aros
 #
 
-INSERT INTO `aros` VALUES (1,NULL,NULL,NULL,'Dono',1,2);
+INSERT INTO `aros` VALUES (1,NULL,NULL,NULL,'Dono',1,4);
+INSERT INTO `aros` VALUES (2,1,'Dono',19,NULL,2,3);
 
 #
 # Source for table aros_acos
@@ -154,12 +157,13 @@ CREATE TABLE `donos` (
   `modified` datetime DEFAULT NULL,
   `deleted` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 #
 # Dumping data for table donos
 #
 
+INSERT INTO `donos` VALUES (19,'dayane','d@d.com.br','41246545464','97d5d0304c2b4651497f44a686aa02d03449054f0def8e133861776070e9f667',1,'2020-04-17 18:47:48','2020-04-17 18:47:48',NULL);
 
 #
 #  Foreign keys for table animals

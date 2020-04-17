@@ -2,13 +2,13 @@
 
 ```
 Certifique-se de ter a última versão do Git instaldo
-/n
+
 https://git-scm.com/
 ```
 
 ## Como instalar
 
-Clone o projeto na pasta do seu servicor local: 
+Clone o projeto na pasta do seu servidor local: 
 
 ```
 git clone https://github.com/DayanePM/finder.git finder
@@ -17,15 +17,11 @@ git clone https://github.com/DayanePM/finder.git finder
 ## Crie o banco de dados
 
 ```
-Renomeie o arquivo 
-\n
-/finder/app/Config/database.default.php para
+Renomeie o arquivo database.default.php para database.php localizado na pasta /finder/app/Config/
 
-/finder/app/Config/database.php
+Execute o script do arquivo metadata.sql localizado na pasta finder/app/Config/Schema/metadata.sql
 
-Execute o script do arquivo metadata.sql
-
-finder/app/Config/Schema/metadata.sql
+Configurações do banco:
 
 host: localhost
 database: finder
